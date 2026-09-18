@@ -1,0 +1,168 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rishabh Jain - Portfolio</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Rishabh Jain</h1>
+        <p>B.Tech Computer Science & Engineering Student</p>
+
+        <nav>
+            <a href="#about">About</a> |
+            <a href="#skills">Skills</a> |
+            <a href="#education">Education</a> |
+            <a href="#projects">Projects</a> |
+            <a href="#timetable">Timetable</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <section id="about">
+            <h2>About Me</h2>
+
+            <img src="https://via.placeholder.com/150"
+                 alt="Rishabh Jain"
+                 width="150">
+
+            <p>
+                Hello! I am Rishabh Jain. I am a B.Tech Computer Science
+                and Engineering student at GLA University, Mathura.
+            </p>
+
+            <p>
+                I am interested in programming, web development,
+                Artificial Intelligence and problem solving.
+            </p>
+        </section>
+
+        <hr>
+
+        <section id="skills">
+            <h2>My Skills</h2>
+
+            <ul>
+                <li>Java</li>
+                <li>C Programming</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Data Structures and Algorithms</li>
+                <li>Object Oriented Programming</li>
+                <li>Git and GitHub</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="education">
+            <h2>Education</h2>
+
+            <table border="1">
+                <tr>
+                    <th>Qualification</th>
+                    <th>Institution</th>
+                    <th>Result</th>
+                </tr>
+
+                <tr>
+                    <td>B.Tech CSE</td>
+                    <td>GLA University</td>
+                    <td>CGPA: 8.76</td>
+                </tr>
+
+                <tr>
+                    <td>Class 12</td>
+                    <td>CBSE</td>
+                    <td>74.2%</td>
+                </tr>
+
+                <tr>
+                    <td>Class 10</td>
+                    <td>CBSE</td>
+                    <td>91.8%</td>
+                </tr>
+
+                <tr>
+                    <td>JEE Main</td>
+                    <td>NTA</td>
+                    <td>89.6 Percentile</td>
+                </tr>
+            </table>
+        </section>
+
+        <hr>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+
+            <h3>1. Personal Portfolio</h3>
+            <p>
+                A simple portfolio website created using HTML.
+            </p>
+
+            <h3>2. Java Projects</h3>
+            <p>
+                Programming projects based on arrays, strings,
+                loops and object-oriented programming.
+            </p>
+
+            <h3>3. DSA Practice</h3>
+            <p>
+                Solving programming problems using Data Structures
+                and Algorithms.
+            </p>
+        </section>
+
+        <hr>
+
+        <section id="timetable">
+            <h2>Academic Timetable</h2>
+
+            <table border="1">
+                <tr>
+                    <th>Day</th>
+                    <th>9-10</th>
+                    <th>10-11</th>
+                    <th>11-12</th>
+                    <th>12-1</th>
+                    <th>2-3</th>
+                </tr>
+
+                <tr>
+                    <td>Monday</td>
+                    <td>Java</td>
+                    <td>Maths</td>
+                    <td>DBMS</td>
+                    <td>Break</td>
+                    <td>Web Development</td>
+                </tr>
+
+                <tr>
+                    <td>Tuesday</td>
+                    <td>DSA</td>
+                    <td>Java</td>
+                    <td>Operating System</td>
+                    <td>Break</td>
+                    <td>Web Development</td>
+                </tr>
+
+                <tr>
+                    <td>Wednesday</td>
+                    <td>Maths</td>
+                    <td>DBMS</td>
+                    <td>Java Lab</td>
+                    <td>Break</td>
+                    <td>DSA</td>
+                </tr>
+
+                <tr>
+                    <td>Thursday</td>
+                    <td>Operating System</td>
+```

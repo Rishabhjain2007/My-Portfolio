@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 8 - Advanced DOM</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    li { margin: 5px; }
+  </style>
+</head>
+<body>
+
+  <h1>To-Do List</h1>
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button id="addBtn">Add</button>
+  <ul id="taskList"></ul>
+
+  <hr>
+
+  <h1>Chessboard</h1>
+  <div id="board"></div>
+
+  <script>
+    // ---------- To-Do List ----------
+    var input = document.getElementById("taskInput");
+    var addBtn = document.getElementById("addBtn");
+    var list = document.getElementById("taskList");
+
+    addBtn.addEventListener("click", function () {
+      var text = input.value;
+
+      if (text == "") {
+        alert("Please enter a task");
+        return;
+      }
+
+      var li = document.createElement("li");
+
+      // checkbox
+      var checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+
+      // task text
+      var span = document.createElement("span");
+      span.innerText = " " + text + " ";
+
+      // when checkbox is clicked, cut the text
+      checkbox.addEventListener("change", function () {
+        if (checkbox.checked) {
+          span.style.textDecoration = "line-through";
+        } else {
+          span.style.textDecoration = "none";
+        }
+      });
+
+      // up button
+      var upBtn = document.createElement("button");
+      upBtn.innerText = "Up";
+      upBtn.addEventListener("click", function () {
+        var prev = li.previousElementSibling;
+        if (prev != null) {
+          list.insertBefore(li, prev);
+        }
+      });
+
+      // down button
+      var downBtn = document.createElement("button");
+      downBtn.innerText = "Down";
+      downBtn.addEventListener("click", function () {
+        var next = li.nextElementSibling;
+        if (next != null) {
+          list.insertBefore(next, li);
+        }
+      });
+
+      // remove button
+      var removeBtn = document.createElement("button");
+      removeBtn.innerText = "Remove";
+      removeBtn.addEventListener("click", function () {
+        list.removeChild(li);
+      });
+
+      li.appendChild(checkbox);
+      li.appendChild(span);
+      li.appendChild(upBtn);
+      li.appendChild(downBtn);
+      li.appendChild(removeBtn);
+      list.appendChild(li);
+
+      input.value = "";
+    });
+
+    // ---------- Chessboard ----------
+    var board = document.getElementById("board");
+    board.style.width = "400px";
+    board.style.height = "400px";
+    board.style.border = "2px solid black";
+
+    for (var row = 0; row < 8; row++) {
+      for (var col = 0; col < 8; col++) {
+        var square = document.createElement("div");
+        square.style.width = "50px";
+        square.style.height = "50px";
+        square.style.float = "left";
+
+        if ((row + col) % 2 == 0) {
+          square.style.backgroundColor = "white";
+        } else {
+          square.style.backgroundColor = "black";
+        }
+
+        board.appendChild(square);
+      }
+    }
+  </script>
+
+</body>
+</html>

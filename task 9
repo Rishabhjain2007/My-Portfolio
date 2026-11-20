@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 9 - Asynchronous Programming</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    #output { margin-top: 10px; border: 1px solid gray; padding: 10px; width: 400px; min-height: 60px; }
+  </style>
+</head>
+<body>
+
+  <h1>Simulating Server Data Fetching</h1>
+
+  <button id="timeoutBtn">Fetch using setTimeout</button>
+  <button id="promiseBtn">Fetch using Promise</button>
+  <button id="errorBtn">Fetch with Error</button>
+
+  <div id="output">Click a button to fetch data...</div>
+
+  <script>
+    var output = document.getElementById("output");
+
+    // ---------- 1. Using setTimeout ----------
+    document.getElementById("timeoutBtn").addEventListener("click", function () {
+      output.innerText = "Loading...";
+
+      // runs after 2 seconds
+      setTimeout(function () {
+        output.innerText = "Data received using setTimeout: Name = Rahul, Age = 20";
+      }, 2000);
+    });
+
+    // ---------- 2. Using Promise ----------
+    function fetchData() {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          var data = { name: "Rahul", age: 20, course: "B.Tech" };
+          resolve(data);          // success after 2 seconds
+        }, 2000);
+      });
+    }
+
+    document.getElementById("promiseBtn").addEventListener("click", function () {
+      output.innerText = "Loading...";
+
+      fetchData()
+        .then(function (result) {
+          output.innerText = "Data received using Promise: " +
+            result.name + ", " + result.age + ", " + result.course;
+        })
+        .catch(function (error) {
+          output.innerText = "Error: " + error;
+        });
+    });
+
+    // ---------- 3. Promise with reject (error case) ----------
+    function fetchDataError() {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          reject("Server not responding");   // failure after 2 seconds
+        }, 2000);
+      });
+    }
+
+    document.getElementById("errorBtn").addEventListener("click", function () {
+      output.innerText = "Loading...";
+
+      fetchDataError()
+        .then(function (result) {
+          output.innerText = result;
+        })
+        .catch(function (error) {
+          output.innerText = "Error: " + error;
+        });
+    });
+  </script>
+
+</body>
+</html>

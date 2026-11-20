@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 7 - DOM Manipulation</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    #bigImage { width: 400px; height: 250px; border: 1px solid black; }
+    .thumb { width: 80px; height: 60px; margin: 5px; cursor: pointer; border: 1px solid gray; }
+  </style>
+</head>
+<body>
+
+  <h1>To-Do List</h1>
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button id="addBtn">Add</button>
+  <ul id="taskList"></ul>
+
+  <hr>
+
+  <h1>Image Gallery</h1>
+  <img id="bigImage" src="https://picsum.photos/id/10/400/250">
+  <br>
+  <img class="thumb" src="https://picsum.photos/id/10/400/250">
+  <img class="thumb" src="https://picsum.photos/id/20/400/250">
+  <img class="thumb" src="https://picsum.photos/id/30/400/250">
+  <img class="thumb" src="https://picsum.photos/id/40/400/250">
+
+  <script>
+    // ---------- To-Do List ----------
+    var input = document.getElementById("taskInput");
+    var addBtn = document.getElementById("addBtn");
+    var list = document.getElementById("taskList");
+
+    addBtn.addEventListener("click", function () {
+      var text = input.value;
+
+      if (text == "") {
+        alert("Please enter a task");
+        return;
+      }
+
+      // create a new list item
+      var li = document.createElement("li");
+      li.innerText = text + " ";
+
+      // create a remove button
+      var removeBtn = document.createElement("button");
+      removeBtn.innerText = "Remove";
+      removeBtn.addEventListener("click", function () {
+        list.removeChild(li);
+      });
+
+      li.appendChild(removeBtn);
+      list.appendChild(li);
+
+      input.value = "";
+    });
+
+    // ---------- Image Gallery ----------
+    var bigImage = document.getElementById("bigImage");
+    var thumbs = document.getElementsByClassName("thumb");
+
+    for (var i = 0; i < thumbs.length; i++) {
+      thumbs[i].addEventListener("click", function () {
+        bigImage.src = this.src;
+      });
+    }
+  </script>
+
+</body>
+</html>
